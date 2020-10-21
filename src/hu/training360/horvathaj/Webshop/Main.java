@@ -39,29 +39,12 @@ public class Main {
         ShopItem Uborka = new ShopItem("Uborka", 2800, true);
         ShopItem Gesztenye = new ShopItem("Gesztenye", 1000, true);
 
-        int darab;
         int kosarErtek = 0;
-        Scanner reader= new Scanner(System.in);
 
-        System.out.println("Téliszalámi mennyiség: ");
-        darab = reader.nextInt();
-        TeliSzalami.setCount(darab);
-        kosarErtek += darab*TeliSzalami.getPrice();
-
-        System.out.println("Gumikacsa mennyiség: ");
-        darab = reader.nextInt();
-        GumiKacsa.setCount(darab);
-        kosarErtek += darab*GumiKacsa.getPrice();
-
-        System.out.println("Uborka mennyiség: ");
-        darab = reader.nextInt();
-        Uborka.setCount(darab);
-        kosarErtek += darab*Uborka.getPrice();
-
-        System.out.println("Gesztenye mennyiség: ");
-        darab = reader.nextInt();
-        Gesztenye.setCount(darab);
-        kosarErtek += darab*Gesztenye.getPrice();
+        kosarErtek += TeliSzalami.setCount();
+        kosarErtek += GumiKacsa.setCount();
+        kosarErtek += Uborka.setCount();
+        kosarErtek += Gesztenye.setCount();
 
         System.out.println(TeliSzalami.getItemData());
 
