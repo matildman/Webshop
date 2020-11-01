@@ -2,14 +2,14 @@ package hu.training360.horvathaj.Webshop;
 
 public class KedvezmenyMegapack {
 
-   public int MegapackSzamol(ShopItem OneItem) {
+   public int megapackSzamol(ShopItem oneItem) {
 
        int szamoltKedv;
        szamoltKedv = 0;
 
-       if (OneItem.isMegapack() )
+       if (oneItem.isMegapack() )
        {
-           szamoltKedv = OneItem.getCount() / 12;
+           szamoltKedv = oneItem.getCount() / 12;
        }
         return szamoltKedv;
    }

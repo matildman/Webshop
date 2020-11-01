@@ -1,13 +1,13 @@
 package hu.training360.horvathaj.Webshop;
 
 public class KedvezmenyKettoHarom {
-    public int KettoHaromSzamol(ShopItem OneItem) {
+    public int kettoHaromSzamol(ShopItem oneItem) {
 
         int szamoltKedv;
         szamoltKedv = 0;
 
-        if (!OneItem.isMegapack() )
-            szamoltKedv = (OneItem.getCount() / 3) * OneItem.getPrice();
+        if (!oneItem.isMegapack() )
+            szamoltKedv = (oneItem.getCount() / 3) * oneItem.getPrice();
         return szamoltKedv;
     }
 }

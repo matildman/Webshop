@@ -2,6 +2,7 @@ package hu.training360.horvathaj.Webshop;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.List;
 
 public class Main {
 
@@ -34,49 +35,50 @@ public class Main {
         árát, kedvezményes árát és a kedvezmény típus nevét*/
 
 
-        ShopItem TeliSzalami = new ShopItem("Téliszalámi", 2000, false);
-        ShopItem GumiKacsa   = new ShopItem("Gumikacsa", 3000, false);
-        ShopItem Uborka = new ShopItem("Uborka", 2800, true);
-        ShopItem Gesztenye = new ShopItem("Gesztenye", 1000, true);
+
+        ShopItem teliSzalami = new ShopItem("Téliszalámi", 2000, false);
+        ShopItem gumiKacsa   = new ShopItem("Gumikacsa", 3000, false);
+        ShopItem uborka = new ShopItem("Uborka", 2800, true);
+        ShopItem gesztenye = new ShopItem("Gesztenye", 1000, true);
 
         int kosarErtek = 0;
 
-        kosarErtek += TeliSzalami.setCount();
-        kosarErtek += GumiKacsa.setCount();
-        kosarErtek += Uborka.setCount();
-        kosarErtek += Gesztenye.setCount();
+        kosarErtek += teliSzalami.setCount();
+        kosarErtek += gumiKacsa.setCount();
+        kosarErtek += uborka.setCount();
+        kosarErtek += gesztenye.setCount();
 
-        System.out.println(TeliSzalami.getItemData());
+        System.out.println(teliSzalami.getItemData());
 
-        System.out.println(GumiKacsa.getItemData());
+        System.out.println(gumiKacsa.getItemData());
 
-        System.out.println(Uborka.getItemData());
+        System.out.println(uborka.getItemData());
 
-        System.out.println(Gesztenye.getItemData());
+        System.out.println(gesztenye.getItemData());
 
-        KedvezmenyMegapack KedvMega = new KedvezmenyMegapack();
+        KedvezmenyMegapack kedvMega = new KedvezmenyMegapack();
         int sumMegapack = 0;
-        sumMegapack += KedvMega.MegapackSzamol(TeliSzalami);
+        sumMegapack += kedvMega.megapackSzamol(teliSzalami);
         System.out.println("Halmozott Megapack kedvezmény: "+sumMegapack);
-        sumMegapack += KedvMega.MegapackSzamol(GumiKacsa);
+        sumMegapack += kedvMega.megapackSzamol(gumiKacsa);
         System.out.println("Halmozott Megapack kedvezmény: "+sumMegapack);
-        sumMegapack += KedvMega.MegapackSzamol(Uborka);
+        sumMegapack += kedvMega.megapackSzamol(uborka);
         System.out.println("Halmozott Megapack kedvezmény: "+sumMegapack);
-        sumMegapack += KedvMega.MegapackSzamol(Gesztenye);
+        sumMegapack += kedvMega.megapackSzamol(gesztenye);
         System.out.println("Halmozott Megapack kedvezmény: "+sumMegapack);
 
         //System.out.println("Megapack kedvezmény darab összesen: "+sumMegapack);
         //System.out.println("Megapack kedvezmény érték összesen: "+sumMegapack*6000);
 
-        KedvezmenyKettoHarom KedvKettoHarom = new KedvezmenyKettoHarom();
+        KedvezmenyKettoHarom kedvKettoHarom = new KedvezmenyKettoHarom();
         int sumKettoHarom = 0;
-        sumKettoHarom += KedvKettoHarom.KettoHaromSzamol(TeliSzalami);
+        sumKettoHarom += kedvKettoHarom.kettoHaromSzamol(teliSzalami);
         System.out.println("Halmozott kettő=három kedvezmény: "+sumKettoHarom);
-        sumKettoHarom += KedvKettoHarom.KettoHaromSzamol(GumiKacsa);
+        sumKettoHarom += kedvKettoHarom.kettoHaromSzamol(gumiKacsa);
         System.out.println("Halmozott kettő=három kedvezmény: "+sumKettoHarom);
-        sumKettoHarom += KedvKettoHarom.KettoHaromSzamol(Uborka);
+        sumKettoHarom += kedvKettoHarom.kettoHaromSzamol(uborka);
         System.out.println("Halmozott kettő=három kedvezmény: "+sumKettoHarom);
-        sumKettoHarom += KedvKettoHarom.KettoHaromSzamol(Gesztenye);
+        sumKettoHarom += kedvKettoHarom.kettoHaromSzamol(gesztenye);
         System.out.println("Halmozott kettő=három kedvezmény: "+sumKettoHarom);
 
         //System.out.println("Kettő=három kedvezmény összesen: "+sumKettoHarom);

@@ -3,13 +3,13 @@ package hu.training360.horvathaj.Webshop;
 import java.util.Scanner;
 
 public class ShopItem {
-    private String itemname;
+    private String itemName;
     private int price;
     private boolean megapack;
     private int count;
 
-    public ShopItem(String itemname, int price, boolean megapack) {
-        this.itemname = itemname;
+    public ShopItem(String itemName, int price, boolean megapack) {
+        this.itemName = itemName;
         this.price = price;
         this.megapack = megapack;
     }
@@ -32,7 +32,7 @@ public class ShopItem {
 
     public String getItemData() {
         return "Bolti készlet : " +
-                "Termék neve=" + itemname +
+                "Termék neve=" + itemName +
                 " ; termék ára=" + price +
                 " ; megapack =" + megapack +
                 " ; darabszám =" + count
@@ -43,7 +43,7 @@ public class ShopItem {
         int darab;
         Scanner reader= new Scanner(System.in);
 
-        System.out.print(this.itemname+" mennyiség: ");
+        System.out.print(this.itemName+" mennyiség: ");
         darab = reader.nextInt();
         if (darab < 0) {
             throw new InvalidWebshopOperations("Negatív darabszám nem adható meg!",Exceptions.ZERO_AMOUNT);
