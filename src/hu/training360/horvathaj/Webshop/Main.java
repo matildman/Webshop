@@ -34,68 +34,49 @@ public class Main {
         jelenítse meg az eredeti bekért adatokat a megadott darabszámokkal, ez alá írja ki a kosár eredeti
         árát, kedvezményes árát és a kedvezmény típus nevét*/
 
+        ShopItems items = new ShopItems();
 
+        //ShopItem teliSzalami = new ShopItem("Téliszalámi", 2000, false);
 
-        ShopItem teliSzalami = new ShopItem("Téliszalámi", 2000, false);
-        ShopItem gumiKacsa   = new ShopItem("Gumikacsa", 3000, false);
-        ShopItem uborka = new ShopItem("Uborka", 2800, true);
-        ShopItem gesztenye = new ShopItem("Gesztenye", 1000, true);
+        items.addItem( "Téliszalámi", 2000, false );
+        items.addItem("Gumikacsa", 3000, false);
+        items.addItem("Uborka", 2800, true);
+        items.addItem("Gesztenye", 1000, true);
 
         int kosarErtek = 0;
 
-        kosarErtek += teliSzalami.setCount();
-        kosarErtek += gumiKacsa.setCount();
-        kosarErtek += uborka.setCount();
-        kosarErtek += gesztenye.setCount();
+        for (ShopItem currentItem : items.getItems() ) {
+            kosarErtek += currentItem.setCount();
+        }
 
-        System.out.println(teliSzalami.getItemData());
-
-        System.out.println(gumiKacsa.getItemData());
-
-        System.out.println(uborka.getItemData());
-
-        System.out.println(gesztenye.getItemData());
+        for (ShopItem currentItem : items.getItems() ) {
+            System.out.println(currentItem.getItemData());
+        }
 
         KedvezmenyMegapack kedvMega = new KedvezmenyMegapack();
-        int sumMegapack = 0;
-        sumMegapack += kedvMega.megapackSzamol(teliSzalami);
-        System.out.println("Halmozott Megapack kedvezmény: "+sumMegapack);
-        sumMegapack += kedvMega.megapackSzamol(gumiKacsa);
-        System.out.println("Halmozott Megapack kedvezmény: "+sumMegapack);
-        sumMegapack += kedvMega.megapackSzamol(uborka);
-        System.out.println("Halmozott Megapack kedvezmény: "+sumMegapack);
-        sumMegapack += kedvMega.megapackSzamol(gesztenye);
-        System.out.println("Halmozott Megapack kedvezmény: "+sumMegapack);
-
-        //System.out.println("Megapack kedvezmény darab összesen: "+sumMegapack);
-        //System.out.println("Megapack kedvezmény érték összesen: "+sumMegapack*6000);
+        for (ShopItem currentItem : items.getItems() ) {
+            kedvMega.megapackSzamol(currentItem);
+            System.out.println("Halmozott Megapack kedvezmény: "+kedvMega.getSumMegapack());
+        }
 
         KedvezmenyKettoHarom kedvKettoHarom = new KedvezmenyKettoHarom();
-        int sumKettoHarom = 0;
-        sumKettoHarom += kedvKettoHarom.kettoHaromSzamol(teliSzalami);
-        System.out.println("Halmozott kettő=három kedvezmény: "+sumKettoHarom);
-        sumKettoHarom += kedvKettoHarom.kettoHaromSzamol(gumiKacsa);
-        System.out.println("Halmozott kettő=három kedvezmény: "+sumKettoHarom);
-        sumKettoHarom += kedvKettoHarom.kettoHaromSzamol(uborka);
-        System.out.println("Halmozott kettő=három kedvezmény: "+sumKettoHarom);
-        sumKettoHarom += kedvKettoHarom.kettoHaromSzamol(gesztenye);
-        System.out.println("Halmozott kettő=három kedvezmény: "+sumKettoHarom);
+        for (ShopItem currentItem : items.getItems() ) {
+            kedvKettoHarom.kettoHaromSzamol(currentItem);
+            System.out.println("Halmozott kettő=három kedvezmény: "+kedvKettoHarom.getSumKettoHarom());
+        }
 
-        //System.out.println("Kettő=három kedvezmény összesen: "+sumKettoHarom);
-
-        System.out.println("Kettő=három kedvezmény összesen: "+sumKettoHarom);
-        System.out.println("Megapack kedvezmény érték összesen: "+sumMegapack*6000);
+        System.out.println("Kettő=három kedvezmény összesen: "+kedvKettoHarom.getSumKettoHarom());
+        System.out.println("Megapack kedvezmény érték összesen: "+kedvMega.getSumMegapack());
 
         System.out.println("Kosár kedvezmény néklüli értéke: "+ kosarErtek);
-        if (sumMegapack*6000 > sumKettoHarom) {
-            System.out.println("Megapack kedvezmény érvényesítés: "+ sumMegapack*6000);
-            System.out.println("Kosár kedvezményes értéke: "+ (kosarErtek-sumMegapack*6000) );
+        if (kedvMega.getSumMegapack() > kedvKettoHarom.getSumKettoHarom()) {
+            System.out.println("Megapack kedvezmény érvényesítés: "+ kedvMega.getSumMegapack());
+            System.out.println("Kosár kedvezményes értéke: "+ (kosarErtek-kedvMega.getSumMegapack()) );
         }
         else {
-            System.out.println("Kettő=három kedvezmény érvényesítés: "+ sumKettoHarom);
-            System.out.println("Kosár kedvezményes értéke: "+ (kosarErtek-sumKettoHarom) );
+            System.out.println("Kettő=három kedvezmény érvényesítés: "+ kedvKettoHarom.getSumKettoHarom());
+            System.out.println("Kosár kedvezményes értéke: "+ (kosarErtek-kedvKettoHarom.getSumKettoHarom()) );
         }
-
 
     }
 }
